@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — AXIOVERSE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #060A08;
+      --bg-surface: rgba(11, 17, 14, 0.82);
+      --bg-card: #0D1411;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-emerald: rgba(16, 245, 135, 0.28);
+      --emerald: #10F587;
+      --emerald-dim: #0BC96D;
+      --emerald-glow: rgba(16, 245, 135, 0.16);
+      --text-primary: #F3F6F4;
+      --text-secondary: #8A9991;
+      --text-muted: #52615A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Cyber Grid & Radial Glow */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(16, 245, 135, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 245, 135, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .bg-glow {
+      position: fixed;
+      top: -15%;
+      right: -10%;
+      width: 65vw;
+      height: 65vw;
+      max-width: 850px;
+      max-height: 850px;
+      background: radial-gradient(circle, rgba(16, 245, 135, 0.11) 0%, rgba(6, 10, 8, 0) 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Pill Navbar */
+    .nav-wrapper {
+      position: sticky;
+      top: 18px;
+      z-index: 50;
+      padding: 0 16px;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(10, 15, 13, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 1.05rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--emerald);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      background: var(--emerald);
+      color: #03120A;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 9px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 22px rgba(16, 245, 135, 0.32);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      background: #28ff97;
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(16, 245, 135, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.88rem;
+      padding: 9px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-emerald);
+      background: rgba(16, 245, 135, 0.06);
+    }
+
+    .status-pill {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      border-radius: 8px;
+      padding: 7px 10px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      background: rgba(10, 15, 13, 0.96);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-top: 10px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--emerald);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 84px;
+      padding: 36px 0;
+      background: rgba(6, 10, 8, 0.9);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.86rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--emerald);
+    }
+
+    .mono-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 860px) {
+      .nav-links, .status-pill {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  </style>
+  
+  <style>
+    .page-header {
+      padding: 64px 0 36px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 44px;
+    }
+
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 14px 0 12px;
+      text-transform: uppercase;
+    }
+
+    .page-title span {
+      color: var(--emerald);
+    }
+
+    .privacy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .toc-card {
+      position: sticky;
+      top: 96px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .toc-list a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .toc-list a:hover {
+      color: var(--emerald);
+    }
+
+    .policy-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .policy-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .policy-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 42px;
+      height: 42px;
+      border-top: 2px solid var(--emerald);
+      border-right: 2px solid var(--emerald);
+      border-top-right-radius: 14px;
+      opacity: 0.7;
+    }
+
+    .policy-block h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .policy-block h2 span {
+      color: var(--emerald);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      margin-right: 8px;
+    }
+
+    .policy-block p, .policy-block li {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .policy-block ul {
+      margin-top: 10px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    @media (max-width: 860px) {{
+      .privacy-layout {{
+        grid-template-columns: 1fr;
+      }}
+      .toc-card {{
+        position: static;
+      }}
+    }}
+  </style>
+
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="nav-wrapper">
+    <nav class="navbar">
+      <a href="homePage.html" class="brand">
+        <svg width="26" height="26" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="14,2 25,8.5 25,19.5 14,26 3,19.5 3,8.5" stroke="#10F587" stroke-width="1.6" fill="rgba(16,245,135,0.06)"/>
+          <polygon points="14,6.5 21,10.5 21,17.5 14,21.5 7,17.5 7,10.5" stroke="#10F587" stroke-width="1" stroke-opacity="0.65"/>
+          <line x1="14" y1="2" x2="14" y2="26" stroke="#10F587" stroke-width="1" stroke-opacity="0.5"/>
+          <line x1="3" y1="8.5" x2="25" y2="19.5" stroke="#10F587" stroke-width="1" stroke-opacity="0.5"/>
+          <line x1="25" y1="8.5" x2="3" y2="19.5" stroke="#10F587" stroke-width="1" stroke-opacity="0.5"/>
+        </svg>
+        <span>AXIOVERSE</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="homePage.html" class="">Universe</a>
+        <a href="homePage.html#architecture">Protocol</a>
+        <a href="homePage.html#metrics">Nodes</a>
+        <a href="privacy.html" class="active">Privacy</a>
+        <a href="contact.html" class="">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="homePage.html#launch" class="btn-primary" onclick="if(typeof openLaunchModal==='function'){event.preventDefault();openLaunchModal();}">Launch App</a>
+        <div class="status-pill" title="Mainnet Operational">
+          <span class="status-dot"></span>
+        </div>
+        <button class="mobile-toggle" aria-label="Toggle Menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="homePage.html" class="">Universe</a>
+      <a href="homePage.html#architecture">Protocol</a>
+      <a href="homePage.html#metrics">Nodes</a>
+      <a href="privacy.html" class="active">Privacy Policy</a>
+      <a href="contact.html" class="">Contact</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <header class="page-header">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(16,245,135,0.06);border:1px solid rgba(16,245,135,0.22);">
+        <span class="status-dot"></span>
+        <span class="mono-label" style="color:var(--text-secondary);">// ZERO-KNOWLEDGE PRIVACY CHARTER</span>
+      </div>
+      <h1 class="page-title">PRIVACY <span>POLICY</span></h1>
+      <p style="color:var(--text-secondary);max-width:640px;">
+        Effective Date: November 24, 2026 • Axioverse is engineered on cryptographic minimalism—verifying state without harvesting personal identity.
+      </p>
+    </header>
+
+    <div class="privacy-layout">
+      <aside class="toc-card">
+        <div class="mono-label" style="color:var(--emerald);">INDEX</div>
+        <ul class="toc-list">
+          <li><a href="#principle">01 / Zero-Knowledge Core</a></li>
+          <li><a href="#telemetry">02 / Data & Telemetry</a></li>
+          <li><a href="#onchain">03 / Public Ledger State</a></li>
+          <li><a href="#security">04 / Cryptographic Security</a></li>
+          <li><a href="#rights">05 / Sovereign User Rights</a></li>
+        </ul>
+      </aside>
+
+      <div class="policy-content">
+        <section id="principle" class="policy-block">
+          <h2><span>01 /</span>Zero-Knowledge Core Principle</h2>
+          <p>
+            The Axioverse Spatial Protocol operates without centralized user accounts, behavioral profiling, or third-party ad trackers. Authentication and world ownership rely exclusively on client-side cryptographic keypairs and zero-knowledge proofs (ZKPs).
+          </p>
+        </section>
+
+        <section id="telemetry" class="policy-block">
+          <h2><span>02 /</span>Minimal Data & Node Telemetry</h2>
+          <p>When interacting with Axioverse web interfaces or edge RPC gateways, we process only ephemeral technical metadata required for routing:</p>
+          <ul>
+            <li><strong>Ephemeral Session Routing:</strong> Transient IP headers are stripped at the edge load balancer and are never written to persistent storage.</li>
+            <li><strong>Local Client Storage:</strong> Interface preferences and spatial cache states remain locally in your browser's storage and can be cleared at any time.</li>
+            <li><strong>Voluntary Communications:</strong> If you reach out via our Contact portal, submitted details are used solely to respond to your inquiry.</li>
+          </ul>
+        </section>
+
+        <section id="onchain" class="policy-block">
+          <h2><span>03 /</span>Public Ledger & Spatial State</h2>
+          <p>
+            Transactions, deployed realms, and governance votes broadcast to the Axioverse mainnet are recorded on an immutable public ledger. While wallet addresses are pseudonymous, on-chain state transitions are publicly verifiable by design.
+          </p>
+        </section>
+
+        <section id="security" class="policy-block">
+          <h2><span>04 /</span>Cryptographic Security</h2>
+          <p>
+            Private keys never leave your local signing environment. All gateway communications enforce TLS 1.3 encryption and deterministic state verification across distributed validator nodes.
+          </p>
+        </section>
+
+        <section id="rights" class="policy-block">
+          <h2><span>05 /</span>Sovereign User Rights</h2>
+          <p>
+            You retain full custody over your cryptographic identity and off-chain communications. For privacy inquiries or data deletion requests regarding direct support messages, contact <span style="color:var(--emerald);">privacy@axioverse.network</span>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="mono-label" style="color:var(--emerald);">// AXIOVERSE PROTOCOL V2.4</span>
+        <span style="color:var(--text-muted);font-size:0.84rem;">© 2026 Axioverse Foundation</span>
+      </div>
+      <div class="footer-links">
+        <a href="homePage.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
