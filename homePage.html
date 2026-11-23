@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TelExport Privacy Policy — AXIOVERSE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #060A08;
+      --bg-surface: rgba(11, 17, 14, 0.82);
+      --bg-card: #0D1411;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-emerald: rgba(16, 245, 135, 0.28);
+      --emerald: #10F587;
+      --emerald-dim: #0BC96D;
+      --emerald-glow: rgba(16, 245, 135, 0.16);
+      --text-primary: #F3F6F4;
+      --text-secondary: #8A9991;
+      --text-muted: #52615A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* Cyber Grid & Radial Glow */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(16, 245, 135, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 245, 135, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .bg-glow {
+      position: fixed;
+      top: -15%;
+      right: -10%;
+      width: 65vw;
+      height: 65vw;
+      max-width: 850px;
+      max-height: 850px;
+      background: radial-gradient(circle, rgba(16, 245, 135, 0.11) 0%, rgba(6, 10, 8, 0) 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Pill Navbar */
+    .nav-wrapper {
+      position: sticky;
+      top: 18px;
+      z-index: 50;
+      padding: 0 16px;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(10, 15, 13, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 1.05rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--emerald);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      background: var(--emerald);
+      color: #03120A;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 11px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 22px rgba(16, 245, 135, 0.32);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      background: #28ff97;
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(16, 245, 135, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.88rem;
+      padding: 11px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-emerald);
+      background: rgba(16, 245, 135, 0.06);
+    }
+
+    .status-pill {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      border-radius: 8px;
+      padding: 7px 10px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      background: rgba(10, 15, 13, 0.96);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-top: 10px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--emerald);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 84px;
+      padding: 32px 0;
+      background: rgba(6, 10, 8, 0.9);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.86rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--emerald);
+    }
+
+    .mono-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 720px) {
+      .nav-links, .status-pill {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  </style>
+  
+  <style>
+    .page-header {
+      padding: 64px 0 36px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 44px;
+    }
+
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 14px 0 12px;
+      text-transform: uppercase;
+    }
+
+    .page-title span {
+      color: var(--emerald);
+    }
+
+    .summary-callout {
+      margin-top: 20px;
+      padding: 18px 22px;
+      border-radius: 12px;
+      background: rgba(16, 245, 135, 0.06);
+      border: 1px solid var(--border-emerald);
+      color: var(--text-primary);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .summary-callout strong {
+      color: var(--emerald);
+    }
+
+    .privacy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .toc-card {
+      position: sticky;
+      top: 96px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-top: 14px;
+    }
+
+    .toc-list a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.86rem;
+      transition: color 0.2s;
+    }
+
+    .toc-list a:hover {
+      color: var(--emerald);
+    }
+
+    .policy-content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .policy-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .policy-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 42px;
+      height: 42px;
+      border-top: 2px solid var(--emerald);
+      border-right: 2px solid var(--emerald);
+      border-top-right-radius: 14px;
+      opacity: 0.7;
+    }
+
+    .policy-block h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.22rem;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .policy-block h2 span {
+      color: var(--emerald);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      margin-right: 8px;
+    }
+
+    .policy-block p, .policy-block li {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .policy-block ul {
+      margin: 10px 0 12px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .policy-block ul li::marker {
+      color: var(--emerald);
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85em;
+      color: var(--emerald);
+      background: rgba(16, 245, 135, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 860px) {{
+      .privacy-layout {{
+        grid-template-columns: 1fr;
+      }}
+      .toc-card {{
+        position: static;
+      }}
+    }}
+  </style>
+
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="nav-wrapper">
+    <nav class="navbar">
+      <a href="homePage.html" class="brand">
+        <svg width="26" height="26" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="14,2 25,8.5 25,19.5 14,26 3,19.5 3,8.5" stroke="#10F587" stroke-width="1.6" fill="rgba(16,245,135,0.06)"/>
+          <polygon points="14,6.5 21,10.5 21,17.5 14,21.5 7,17.5 7,10.5" stroke="#10F587" stroke-width="1" stroke-opacity="0.65"/>
+          <line x1="14" y1="2" x2="14" y2="26" stroke="#10F587" stroke-width="1" stroke-opacity="0.5"/>
+          <line x1="3" y1="8.5" x2="25" y2="19.5" stroke="#10F587" stroke-width="1" stroke-opacity="0.5"/>
+          <line x1="25" y1="8.5" x2="3" y2="19.5" stroke="#10F587" stroke-width="1" stroke-opacity="0.5"/>
+        </svg>
+        <span>AXIOVERSE</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="homePage.html" class="">Home</a>
+        <a href="privacy.html" class="active">Privacy</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="status-pill" title="Local-First Engine Ready">
+          <span class="status-dot"></span>
+        </div>
+        <button class="mobile-toggle" aria-label="Toggle Menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="homePage.html" class="">Home</a>
+      <a href="privacy.html" class="active">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <header class="page-header">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(16,245,135,0.06);border:1px solid rgba(16,245,135,0.22);">
+        <span class="status-dot"></span>
+        <span class="mono-label" style="color:var(--text-secondary);">LAST UPDATED: 23 NOVEMBER 2026</span>
+      </div>
+      <h1 class="page-title">TELEXPORT <span>PRIVACY POLICY</span></h1>
+      <p style="color:var(--text-secondary);max-width:740px;">
+        TelExport (“the extension”) exports the messages and participants of the Telegram Web chat that you have open into an Excel workbook. This policy explains what the extension handles and where that data goes.
+      </p>
+      <div class="summary-callout">
+        <strong>In short:</strong> everything is processed and stored on your own device. TelExport does not send data to the developer or to anyone else, makes no network requests, and has no servers, analytics, telemetry, advertising or cloud services.
+      </div>
+    </header>
+
+    <div class="privacy-layout">
+      <aside class="toc-card">
+        <div class="mono-label" style="color:var(--emerald);">SECTIONS</div>
+        <ul class="toc-list">
+          <li><a href="#sec-1">01 / What the extension accesses</a></li>
+          <li><a href="#sec-2">02 / Where data is stored</a></li>
+          <li><a href="#sec-3">03 / What is shared</a></li>
+          <li><a href="#sec-4">04 / Network activity</a></li>
+          <li><a href="#sec-5">05 / Your control</a></li>
+          <li><a href="#sec-6">06 / Children</a></li>
+          <li><a href="#sec-7">07 / Changes to this policy</a></li>
+          <li><a href="#sec-8">08 / Contact</a></li>
+        </ul>
+      </aside>
+
+      <div class="policy-content">
+        <section id="sec-1" class="policy-block">
+          <h2><span>01 /</span>What the extension accesses</h2>
+          <p>
+            When you use it on <code>web.telegram.org</code> (or <code>webk.telegram.org</code> / <code>webz.telegram.org</code>), the extension reads what Telegram Web has already rendered in your open tab for your logged-in account:
+          </p>
+          <ul>
+            <li>message text, message IDs and message times;</li>
+            <li>participant display names and Telegram user IDs shown on the page;</li>
+            <li>the member list, if you open it;</li>
+            <li>only if you turn on “Include media screenshots”: pictures of media that the page has already rendered.</li>
+          </ul>
+          <p>
+            The extension does not read your Telegram login, password, phone number or session credentials, and it does not access any other website.
+          </p>
+        </section>
+
+        <section id="sec-2" class="policy-block">
+          <h2><span>02 /</span>Where data is stored</h2>
+          <ul>
+            <li>Extracted messages, participants and optional screenshots are stored in the extension’s local database (IndexedDB) inside your browser profile.</li>
+            <li>Your settings (media on/off, loading patience, optional own Telegram ID) are stored using Chrome’s local extension storage.</li>
+            <li>Exported files (<code>.xlsx</code>, <code>.csv</code>, <code>.txt</code>) are created in your browser and saved to your Downloads folder.</li>
+          </ul>
+          <p>
+            This data never leaves your device through the extension.
+          </p>
+        </section>
+
+        <section id="sec-3" class="policy-block">
+          <h2><span>03 /</span>What is shared</h2>
+          <p>
+            Nothing. The extension does not sell, share, transfer or transmit user data to anyone. It does not use data for advertising, profiling, creditworthiness or lending decisions, or for any purpose other than creating the export you request.
+          </p>
+        </section>
+
+        <section id="sec-4" class="policy-block">
+          <h2><span>04 /</span>Network activity</h2>
+          <p>
+            The extension itself makes no network requests, and its content security policy blocks connections from its own pages. Telegram Web loads older messages over its own connection when the page scrolls; that is Telegram’s normal operation and is governed by Telegram’s own privacy policy.
+          </p>
+        </section>
+
+        <section id="sec-5" class="policy-block">
+          <h2><span>05 /</span>Your control</h2>
+          <p>
+            You can delete the saved data for one chat, or all saved data, at any time from the extension popup. Uninstalling the extension removes its stored data from your browser. Files you download are yours to manage. You are responsible for handling other people’s names, IDs and messages in line with applicable laws and Telegram’s terms.
+          </p>
+        </section>
+
+        <section id="sec-6" class="policy-block">
+          <h2><span>06 /</span>Children</h2>
+          <p>
+            The extension is not directed at children and does not knowingly collect data from them.
+          </p>
+        </section>
+
+        <section id="sec-7" class="policy-block">
+          <h2><span>07 /</span>Changes to this policy</h2>
+          <p>
+            If this policy changes, the updated version will be posted at this address with a new date. Any future feature that sends data off your device would be disclosed here before release.
+          </p>
+        </section>
+
+        <section id="sec-8" class="policy-block">
+          <h2><span>08 /</span>Contact</h2>
+          <p style="color:var(--text-primary);font-weight:500;margin-bottom:8px;">
+            AxioVerse — <a href="mailto:axioverse@gmail.com" style="color:var(--emerald);text-decoration:none;">axioverse@gmail.com</a>
+          </p>
+          <p>
+            TelExport is an independent tool and is not affiliated with or endorsed by Telegram.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="mono-label" style="color:var(--emerald);">// AXIOVERSE // OSINT & DATA EXTRACTION</span>
+        <span style="color:var(--text-muted);font-size:0.84rem;">© 2026 AxioVerse</span>
+      </div>
+      <div class="footer-links">
+        <a href="homePage.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
