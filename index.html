@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AxioVerse</title>
+<style>
+:root{--bg:#07090d;--bg2:#0d1219;--fg:#e8edf4;--muted:#8a96a6;--accent:#03f5f8;--line:#1b2330;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:radial-gradient(ellipse at 50% 60%,#0f1a24 0%,var(--bg) 65%);color:var(--fg);font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;min-height:100vh}
+header{display:flex;justify-content:center;gap:clamp(16px,4vw,48px);padding:22px 16px;border-bottom:1px solid var(--line)}
+header a{color:var(--muted);text-decoration:none;font-size:15px;letter-spacing:.04em;padding:6px 2px;border-bottom:2px solid transparent;transition:color .3s,border-color .3s}
+header a:hover,header a.active{color:var(--fg);border-color:var(--accent)}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 20px}
+.view{display:none;width:100%}
+.view.active{display:block}
+#home.active{display:flex;align-items:center;justify-content:center;min-height:60vh}
+.stage{position:relative;display:flex;flex-direction:column;align-items:center;cursor:pointer;padding:40px 60px}
+.plane{width:min(380px,70vw);will-change:transform;filter:drop-shadow(0 18px 24px rgba(3,245,248,.12))}
+.plane svg{width:100%;height:auto;display:block}
+.water{position:absolute;left:50%;bottom:6px;width:min(340px,62vw);height:28px;transform:translateX(-50%);pointer-events:none}
+.water i{position:absolute;inset:0;border:1px solid rgba(3,245,248,.25);border-radius:50%;opacity:.5}
+.water i:nth-child(2){inset:-6px -26px;opacity:.28}
+.water i:nth-child(3){inset:-12px -52px;opacity:.14}
+.quote{margin:0 auto;max-width:520px;text-align:center;padding:20px}
+.quote blockquote{margin:0;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:clamp(24px,5.2vw,32px);line-height:1.45;color:var(--fg)}
+.quote blockquote::before{content:"“";display:block;font-size:64px;line-height:.6;color:var(--accent);margin-bottom:14px}
+.quote figcaption{margin-top:26px;color:var(--accent);letter-spacing:.08em;font-size:14px;text-transform:uppercase}
+.card ul{padding-left:22px;margin:0}
+#privacy .card{max-width:760px}
+.card{max-width:680px;margin:0 auto;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:36px}
+h1{margin:0 0 14px;font-weight:600;font-size:28px}
+h2{font-size:18px;margin:26px 0 8px;font-weight:600}
+p,li{color:var(--muted);line-height:1.7;font-size:15px}
+a.link{color:var(--accent)}
+input,textarea{width:100%;margin:6px 0 16px;padding:12px;background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--fg);font:inherit}
+input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+button{background:var(--accent);color:#04181a;border:0;border-radius:8px;padding:12px 24px;font:inherit;font-weight:600;cursor:pointer}
+footer{text-align:center;padding:18px;color:#566170;font-size:13px;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){.plane{transform:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <a href="#home" data-v="home">Home</a>
+  <a href="#wisdom" data-v="wisdom">Wisdom</a>
+  <a href="#contact" data-v="contact">Contact</a>
+  <a href="#privacy" data-v="privacy">Privacy Policy</a>
+</header>
+<main>
+  <section class="view" id="home">
+    <div class="stage" id="stage" aria-label="AxioVerse logo">
+      <div class="plane" id="plane">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 484 373" role="img" aria-label="AxioVerse logo">
+  <defs>
+    <linearGradient id="a-light" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5F8FC"/><stop offset="100%" stop-color="#E4EAF2"/></linearGradient>
+    <linearGradient id="a-shadow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#B8C4D4"/><stop offset="100%" stop-color="#DCE3ED"/></linearGradient>
+    <linearGradient id="v-bright" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#03FDFE"/><stop offset="100%" stop-color="#02C8E0"/></linearGradient>
+    <linearGradient id="v-shadow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#069BB8"/><stop offset="100%" stop-color="#02D1E7"/></linearGradient>
+  </defs>
+  <polygon points="41.91,233.00 107.91,233.00 169.91,233.00 202.91,290.16 74.91,290.16" fill="url(#a-shadow)"/>
+  <polygon points="162.00,25.00 228.00,25.00 107.91,233.00 41.91,233.00" fill="url(#a-light)"/>
+  <polygon points="162.00,25.00 228.00,25.00 327.67,197.63 261.67,197.63 195.00,82.16" fill="#F0F4F9"/>
+  <polygon points="281.09,82.16 409.09,82.16 442.09,139.32 376.09,139.32 314.09,139.32" fill="url(#v-shadow)"/>
+  <polygon points="156.33,174.69 222.33,174.69 289.00,290.16 322.00,347.32 256.00,347.32" fill="#03F5F8"/>
+  <polygon points="376.09,139.32 442.09,139.32 322.00,347.32 256.00,347.32" fill="url(#v-bright)"/>
+</svg>
+      </div>
+      <div class="water"><i></i><i></i><i></i></div>
+    </div>
+  </section>
+
+  <section class="view" id="wisdom">
+    <figure class="quote">
+      <blockquote id="qtext"></blockquote>
+      <figcaption id="qauthor"></figcaption>
+    </figure>
+  </section>
+
+  <section class="view" id="contact">
+    <div class="card">
+      <h1>Contact</h1>
+      <p>Questions, feedback or requests? Email us and we will get back to you.</p>
+      <p><a class="link" href="mailto:axioverse@gmail.com">axioverse@gmail.com</a></p>
+    </div>
+  </section>
+
+  <section class="view" id="privacy">
+    <div class="card">
+      <h1>TelExport Privacy Policy</h1>
+      <p><em>Last updated: 25 November 2026</em></p>
+      <p>TelExport (“the extension”) exports the messages and participants of the Telegram Web chat that you have open into an Excel workbook. This policy explains what the extension handles and where that data goes.</p>
+      <p><strong>In short:</strong> everything is processed and stored on your own device. TelExport does not send data to the developer or to anyone else, makes no network requests, and has no servers, analytics, telemetry, advertising or cloud services.</p>
+      <h2>1. What the extension accesses</h2>
+      <p>When you use it on web.telegram.org (or webk.telegram.org / webz.telegram.org), the extension reads what Telegram Web has already rendered in your open tab for your logged-in account:</p>
+      <ul>
+        <li>message text, message IDs, and message dates and times;</li>
+        <li>the display name and Telegram user ID of each message sender, as shown on the page;</li>
+        <li>a sender’s @username, only where the page shows it, for example in a person’s profile panel that you open yourself;</li>
+        <li>the chat’s member list (names and Telegram IDs), only if you open it;</li>
+        <li>join and leave notices in the chat, used to mark whether a person is still in the group;</li>
+        <li>only if you turn on “Include media screenshots”: pictures of media that the page has already rendered.</li>
+      </ul>
+      <p>The extension does not read your Telegram login, password, phone number or session credentials, does not open or request anyone’s profile on its own, and does not access any other website.</p>
+      <h2>2. Where data is stored</h2>
+      <ul>
+        <li>Extracted messages, participants, usernames and optional screenshots are stored in the extension’s local database (IndexedDB) inside your browser profile.</li>
+        <li>Your settings (media on/off, loading patience, optional own Telegram ID) are stored using Chrome’s local extension storage.</li>
+        <li>Exported files (.xlsx, .csv, .txt) are created in your browser and saved to your Downloads folder.</li>
+      </ul>
+      <p>This data never leaves your device through the extension.</p>
+      <h2>3. What is shared</h2>
+      <p>Nothing. The extension does not sell, share, transfer or transmit user data to anyone. It does not use data for advertising, profiling by the developer, creditworthiness or lending decisions, or for any purpose other than creating the export you request.</p>
+      <h2>4. Network activity</h2>
+      <p>The extension itself makes no network requests, and its content security policy blocks connections from its own pages. Telegram Web loads older messages over its own connection when the page scrolls; that is Telegram’s normal operation and is governed by Telegram’s own privacy policy.</p>
+      <h2>5. Your control</h2>
+      <p>You can delete the saved data for one chat, or all saved data, at any time from the extension popup. Uninstalling the extension removes its stored data from your browser. Files you download are yours to manage.</p>
+      <h2>6. Your responsibilities</h2>
+      <p>The exported files can contain other people’s names, Telegram IDs, usernames and messages. You are responsible for having a lawful basis to collect and use that information, for keeping the files secure, and for complying with applicable laws and Telegram’s terms. The extension collects only what Telegram Web already displays to you.</p>
+      <h2>7. Children</h2>
+      <p>The extension is not directed at children and does not knowingly collect data from them.</p>
+      <h2>8. Changes to this policy</h2>
+      <p>If this policy changes, the updated version will be posted at this address with a new date. Any future feature that sends data off your device would be disclosed here before release.</p>
+      <h2>Contact</h2>
+      <p><a class="link" href="mailto:axioverse@gmail.com">axioverse@gmail.com</a></p>
+    </div>
+  </section>
+</main>
+<footer>© 2026 AxioVerse</footer>
+
+<script>
+(function(){
+  // Routing
+  var names=["home","wisdom","contact","privacy"];
+  function route(){
+    var h=(location.hash||"#home").slice(1);
+    if(names.indexOf(h)<0)h="home";
+    names.forEach(function(n){document.getElementById(n).classList.toggle("active",n===h)});
+    document.querySelectorAll("header a").forEach(function(a){a.classList.toggle("active",a.dataset.v===h)});
+  }
+  window.addEventListener("hashchange",route);route();
+
+  // Wisdom: one random quote per page load
+  var Q=[["You have power over your mind, not outside events. Realize this, and you will find strength.", "Marcus Aurelius"], ["The happiness of your life depends upon the quality of your thoughts.", "Marcus Aurelius"], ["If it is not right, do not do it; if it is not true, do not say it.", "Marcus Aurelius"], ["The best revenge is not to be like your enemy.", "Marcus Aurelius"], ["Waste no more time arguing about what a good man should be. Be one.", "Marcus Aurelius"], ["Very little is needed to make a happy life; it is all within yourself, in your way of thinking.", "Marcus Aurelius"], ["The impediment to action advances action. What stands in the way becomes the way.", "Marcus Aurelius"], ["It is not death that a man should fear, but he should fear never beginning to live.", "Marcus Aurelius"], ["The soul becomes dyed with the color of its thoughts.", "Marcus Aurelius"], ["Accept the things to which fate binds you, and love the people with whom fate brings you together, but do so with all your heart.", "Marcus Aurelius"], ["Look back over the past, with its changing empires that rose and fell, and you can foresee the future too.", "Marcus Aurelius"], ["Men are disturbed not by things, but by the views which they take of them.", "Epictetus"], ["First say to yourself what you would be; and then do what you have to do.", "Epictetus"], ["He is a wise man who does not grieve for the things which he has not, but rejoices for those which he has.", "Epictetus"], ["No man is free who is not master of himself.", "Epictetus"], ["Wealth consists not in having great possessions, but in having few wants.", "Epictetus"], ["We have two ears and one mouth so that we can listen twice as much as we speak.", "Epictetus"], ["Make the best use of what is in your power, and take the rest as it happens.", "Epictetus"], ["If you want to improve, be content to be thought foolish and stupid.", "Epictetus"], ["It is impossible for a man to learn what he thinks he already knows.", "Epictetus"], ["We suffer more often in imagination than in reality.", "Seneca"], ["It is not that we have a short time to live, but that we waste a lot of it.", "Seneca"], ["Difficulties strengthen the mind, as labor does the body.", "Seneca"], ["Begin at once to live, and count each separate day as a separate life.", "Seneca"], ["While we are postponing, life speeds by.", "Seneca"], ["No man was ever wise by chance.", "Seneca"], ["If a man knows not to which port he sails, no wind is favorable.", "Seneca"], ["A gem cannot be polished without friction, nor a man perfected without trials.", "Seneca"], ["True happiness is to enjoy the present, without anxious dependence upon the future.", "Seneca"], ["Sometimes even to live is an act of courage.", "Seneca"], ["We are what we repeatedly do. Excellence, then, is not an act, but a habit.", "Aristotle"], ["It is the mark of an educated mind to be able to entertain a thought without accepting it.", "Aristotle"], ["The roots of education are bitter, but the fruit is sweet.", "Aristotle"], ["Man is by nature a political animal.", "Aristotle"], ["All men by nature desire to know.", "Aristotle"], ["Education is the best provision for old age.", "Aristotle"], ["Friendship is a single soul dwelling in two bodies.", "Aristotle"], ["Happiness depends upon ourselves.", "Aristotle"], ["The whole is greater than the sum of its parts.", "Aristotle"], ["Knowing yourself is the beginning of all wisdom.", "Aristotle"], ["The beginning is the most important part of the work.", "Plato"], ["Wonder is the feeling of a philosopher, and philosophy begins in wonder.", "Plato"], ["Courage is knowing what not to fear.", "Plato"], ["The greatest wealth is to live content with little.", "Plato"], ["Thinking is the talking of the soul with itself.", "Plato"], ["The first and best victory is to conquer self.", "Plato"], ["Necessity is the mother of invention.", "Plato"], ["Knowledge which is acquired under compulsion obtains no hold on the mind.", "Plato"], ["At the touch of love everyone becomes a poet.", "Plato"], ["The price good men pay for indifference to public affairs is to be ruled by evil men.", "Plato"], ["The unexamined life is not worth living.", "Socrates"], ["I am the wiser of the two of us, because I do not think I know what I do not know.", "Socrates"], ["To find yourself, think for yourself.", "Socrates"], ["There is only one good, knowledge, and one evil, ignorance.", "Socrates"], ["He who is not contented with what he has would not be contented with what he would like to have.", "Socrates"], ["The way to gain a good reputation is to endeavor to be what you desire to appear.", "Socrates"], ["I cannot teach anybody anything; I can only make them think.", "Socrates"], ["Wisdom begins in wonder.", "Socrates"], ["It does not matter how slowly you go as long as you do not stop.", "Confucius"], ["Real knowledge is to know the extent of one's ignorance.", "Confucius"], ["He who learns but does not think is lost; he who thinks but does not learn is in great danger.", "Confucius"], ["Our greatest glory is not in never falling, but in rising every time we fall.", "Confucius"], ["Before you embark on a journey of revenge, dig two graves.", "Confucius"], ["Study the past if you would define the future.", "Confucius"], ["When anger rises, think of the consequences.", "Confucius"], ["The man who moves a mountain begins by carrying away small stones.", "Confucius"], ["Everything has beauty, but not everyone sees it.", "Confucius"], ["What you do not wish for yourself, do not do to others.", "Confucius"], ["Virtue is not left to stand alone. He who practices it will have neighbors.", "Confucius"], ["The superior man is modest in his speech but exceeds in his actions.", "Confucius"], ["A journey of a thousand miles begins with a single step.", "Lao Tzu"], ["Knowing others is intelligence; knowing yourself is true wisdom.", "Lao Tzu"], ["Nature does not hurry, yet everything is accomplished.", "Lao Tzu"], ["He who knows that enough is enough will always have enough.", "Lao Tzu"], ["The softest things in the world overcome the hardest things in the world.", "Lao Tzu"], ["When I let go of what I am, I become what I might be.", "Lao Tzu"], ["Mastering others is strength; mastering yourself is true power.", "Lao Tzu"], ["Be content with what you have; rejoice in the way things are.", "Lao Tzu"], ["Those who know do not speak; those who speak do not know.", "Lao Tzu"], ["A good traveler has no fixed plans and is not intent on arriving.", "Lao Tzu"], ["Happiness is the absence of the striving for happiness.", "Zhuangzi"], ["The fish trap exists because of the fish; once you have the fish, you can forget the trap.", "Zhuangzi"], ["Flow with whatever may happen and let your mind be free.", "Zhuangzi"], ["The great man is he who does not lose his child's heart.", "Mencius"], ["The supreme art of war is to subdue the enemy without fighting.", "Sun Tzu"], ["Know your enemy and know yourself, and you need not fear the result of a hundred battles.", "Sun Tzu"], ["Victorious warriors win first and then go to war.", "Sun Tzu"], ["Hatred does not cease by hatred, but only by love; this is the eternal rule.", "The Buddha"], ["All that we are is the result of what we have thought.", "The Buddha"], ["Better than a thousand hollow words is one word that brings peace.", "The Buddha"], ["Three things cannot be long hidden: the sun, the moon, and the truth.", "The Buddha"], ["No man ever steps in the same river twice, for it is not the same river and he is not the same man.", "Heraclitus"], ["Character is destiny.", "Heraclitus"], ["Much learning does not teach understanding.", "Heraclitus"], ["The path up and the path down are one and the same.", "Heraclitus"], ["Nature loves to hide.", "Heraclitus"], ["Do not spoil what you have by desiring what you have not.", "Epicurus"], ["It is impossible to live a pleasant life without living wisely and well and justly.", "Epicurus"], ["Of all the things which wisdom provides to make life entirely happy, much the greatest is the possession of friendship.", "Epicurus"], ["Death is nothing to us; when we are, death is not, and when death is, we are not.", "Epicurus"], ["If you have a garden and a library, you have everything you need.", "Cicero"], ["Not for ourselves alone are we born.", "Cicero"], ["The life of the dead is placed in the memory of the living.", "Cicero"], ["Gratitude is not only the greatest of virtues, but the parent of all others.", "Cicero"], ["I am a citizen of the world.", "Diogenes"], ["The foundation of every state is the education of its youth.", "Diogenes"], ["The hardest thing of all is to know oneself, and the easiest is to give advice to another.", "Thales"], ["Do not say a little in many words, but a great deal in a few.", "Pythagoras"], ["Choose rather to be strong of soul than strong of body.", "Pythagoras"], ["The mind is not a vessel to be filled, but a fire to be kindled.", "Plutarch"], ["Nothing can be created out of nothing.", "Lucretius"], ["Our hearts are restless until they rest in you.", "Augustine"], ["Patience is the companion of wisdom.", "Augustine"], ["What then is time? If no one asks me, I know; if I wish to explain it, I do not know.", "Augustine"], ["Beware of the person of one book.", "Thomas Aquinas"], ["The things that we love tell us what we are.", "Thomas Aquinas"], ["Nothing is miserable unless you think it so.", "Boethius"], ["What do I know?", "Michel de Montaigne"], ["My life has been full of terrible misfortunes, most of which never happened.", "Michel de Montaigne"], ["The greatest thing in the world is to know how to belong to oneself.", "Michel de Montaigne"], ["Nothing is so firmly believed as what we least know.", "Michel de Montaigne"], ["Knowledge is power.", "Francis Bacon"], ["Reading maketh a full man; conference a ready man; and writing an exact man.", "Francis Bacon"], ["If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts, he shall end in certainties.", "Francis Bacon"], ["I think, therefore I am.", "René Descartes"], ["It is not enough to have a good mind; the main thing is to use it well.", "René Descartes"], ["If you would be a real seeker after truth, you must at least once in your life doubt, as far as possible, all things.", "René Descartes"], ["Divide each difficulty into as many parts as is feasible and necessary to resolve it.", "René Descartes"], ["The heart has its reasons which reason knows nothing of.", "Blaise Pascal"], ["All of humanity's problems stem from man's inability to sit quietly in a room alone.", "Blaise Pascal"], ["Man is but a reed, the most feeble thing in nature, but he is a thinking reed.", "Blaise Pascal"], ["I have made this letter longer than usual because I lack the time to make it shorter.", "Blaise Pascal"], ["Do not weep; do not wax indignant. Understand.", "Baruch Spinoza"], ["Peace is not an absence of war, it is a virtue, a state of mind, a disposition for benevolence, confidence, justice.", "Baruch Spinoza"], ["All things excellent are as difficult as they are rare.", "Baruch Spinoza"], ["Fear cannot be without hope nor hope without fear.", "Baruch Spinoza"], ["The life of man, solitary, poor, nasty, brutish, and short.", "Thomas Hobbes"], ["No man's knowledge here can go beyond his experience.", "John Locke"], ["New opinions are always suspected, and usually opposed, without any other reason but because they are not already common.", "John Locke"], ["Education begins the gentleman, but reading, good company and reflection must finish him.", "John Locke"], ["Music is the pleasure the human mind experiences from counting without being aware that it is counting.", "Gottfried Leibniz"], ["Reason is, and ought only to be the slave of the passions.", "David Hume"], ["Beauty in things exists merely in the mind which contemplates them.", "David Hume"], ["A wise man proportions his belief to the evidence.", "David Hume"], ["Doubt is not a pleasant condition, but certainty is absurd.", "Voltaire"], ["Judge a man by his questions rather than by his answers.", "Voltaire"], ["Common sense is not so common.", "Voltaire"], ["It is dangerous to be right in matters on which the established authorities are wrong.", "Voltaire"], ["Man is born free, and everywhere he is in chains.", "Jean-Jacques Rousseau"], ["Patience is bitter, but its fruit is sweet.", "Jean-Jacques Rousseau"], ["Everyone sees what you appear to be, few experience what you really are.", "Niccolò Machiavelli"], ["It is better to be feared than loved, if you cannot be both.", "Niccolò Machiavelli"], ["Useless laws weaken the necessary laws.", "Montesquieu"], ["Dare to know! Have the courage to use your own understanding.", "Immanuel Kant"], ["Two things fill the mind with ever new and increasing admiration and awe: the starry heavens above me and the moral law within me.", "Immanuel Kant"], ["Act only according to that maxim whereby you can at the same time will that it should become a universal law.", "Immanuel Kant"], ["Science is organized knowledge. Wisdom is organized life.", "Immanuel Kant"], ["Out of the crooked timber of humanity, no straight thing was ever made.", "Immanuel Kant"], ["The owl of Minerva spreads its wings only with the falling of the dusk.", "G. W. F. Hegel"], ["We learn from history that we do not learn from history.", "G. W. F. Hegel"], ["Talent hits a target no one else can hit; genius hits a target no one else can see.", "Arthur Schopenhauer"], ["Every man takes the limits of his own field of vision for the limits of the world.", "Arthur Schopenhauer"], ["Compassion is the basis of all morality.", "Arthur Schopenhauer"], ["The task is not so much to see what no one has yet seen, but to think what nobody has yet thought, about that which everybody sees.", "Arthur Schopenhauer"], ["Life can only be understood backwards; but it must be lived forwards.", "Søren Kierkegaard"], ["Anxiety is the dizziness of freedom.", "Søren Kierkegaard"], ["To dare is to lose one's footing momentarily. Not to dare is to lose oneself.", "Søren Kierkegaard"], ["The most common form of despair is not being who you are.", "Søren Kierkegaard"], ["He who has a why to live can bear almost any how.", "Friedrich Nietzsche"], ["One must still have chaos in oneself to be able to give birth to a dancing star.", "Friedrich Nietzsche"], ["Without music, life would be a mistake.", "Friedrich Nietzsche"], ["There are no facts, only interpretations.", "Friedrich Nietzsche"], ["Whoever fights monsters should see to it that in the process he does not become a monster.", "Friedrich Nietzsche"], ["Convictions are more dangerous enemies of truth than lies.", "Friedrich Nietzsche"], ["Become who you are.", "Friedrich Nietzsche"], ["Nothing can bring you peace but yourself.", "Ralph Waldo Emerson"], ["A foolish consistency is the hobgoblin of little minds.", "Ralph Waldo Emerson"], ["Nothing great was ever achieved without enthusiasm.", "Ralph Waldo Emerson"], ["Every man I meet is in some way my superior, in that I can learn of him.", "Ralph Waldo Emerson"], ["The mass of men lead lives of quiet desperation.", "Henry David Thoreau"], ["It's not what you look at that matters, it's what you see.", "Henry David Thoreau"], ["The price of anything is the amount of life you exchange for it.", "Henry David Thoreau"], ["It is better to be a human being dissatisfied than a pig satisfied; better to be Socrates dissatisfied than a fool satisfied.", "John Stuart Mill"], ["He who knows only his own side of the case knows little of that.", "John Stuart Mill"], ["Ask yourself whether you are happy, and you cease to be so.", "John Stuart Mill"], ["Philosophers have only interpreted the world; the point is to change it.", "Karl Marx"], ["The greatest weapon against stress is our ability to choose one thought over another.", "William James"], ["A great many people think they are thinking when they are merely rearranging their prejudices.", "William James"], ["The art of being wise is the art of knowing what to overlook.", "William James"], ["Act as if what you do makes a difference. It does.", "William James"], ["The whole problem with the world is that fools and fanatics are always so certain of themselves, and wiser people so full of doubts.", "Bertrand Russell"], ["The good life is one inspired by love and guided by knowledge.", "Bertrand Russell"], ["Do not fear to be eccentric in opinion, for every opinion now accepted was once eccentric.", "Bertrand Russell"], ["Neither a man nor a crowd nor a nation can be trusted to act humanely or to think sensibly under the influence of a great fear.", "Bertrand Russell"], ["The limits of my language mean the limits of my world.", "Ludwig Wittgenstein"], ["Whereof one cannot speak, thereof one must be silent.", "Ludwig Wittgenstein"], ["Philosophy is a battle against the bewitchment of our intelligence by means of language.", "Ludwig Wittgenstein"], ["The safest general characterization of the European philosophical tradition is that it consists of a series of footnotes to Plato.", "Alfred North Whitehead"], ["Man is condemned to be free.", "Jean-Paul Sartre"], ["Existence precedes essence.", "Jean-Paul Sartre"], ["We are our choices.", "Jean-Paul Sartre"], ["In the midst of winter, I found there was, within me, an invincible summer.", "Albert Camus"], ["One must imagine Sisyphus happy.", "Albert Camus"], ["The struggle itself toward the heights is enough to fill a man's heart.", "Albert Camus"], ["One is not born, but rather becomes, a woman.", "Simone de Beauvoir"], ["The sad truth is that most evil is done by people who never make up their minds to be good or evil.", "Hannah Arendt"], ["Those who cannot remember the past are condemned to repeat it.", "George Santayana"], ["Only the dead have seen the end of war.", "George Santayana"], ["Attention is the rarest and purest form of generosity.", "Simone Weil"], ["Education is not preparation for life; education is life itself.", "John Dewey"], ["We only think when we are confronted with problems.", "John Dewey"], ["True ignorance is not the absence of knowledge, but the refusal to acquire it.", "Karl Popper"], ["Our knowledge can only be finite, while our ignorance must necessarily be infinite.", "Karl Popper"], ["Reserve your right to think, for even to think wrongly is better than not to think at all.", "Hypatia"]];
+  var pool=Q.filter(function(q){return q[0].length>=60&&q[0].length<=150});
+  if(!pool.length)pool=Q;
+  var pick=pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById("qtext").textContent=pick[0]+"”";
+  document.getElementById("qauthor").textContent="— "+pick[1];
+
+  // Floating plane: vertical-only, slow, stays rigid. Eases in/out with hover.
+  var stage=document.getElementById("stage"),plane=document.getElementById("plane");
+  var water=document.querySelector(".water");
+  var hover=false,amp=0,phase=0,last=performance.now();
+  stage.addEventListener("mouseenter",function(){hover=true});
+  stage.addEventListener("mouseleave",function(){hover=false});
+  function tick(now){
+    var dt=Math.min(now-last,50);last=now;
+    amp+=((hover?1:0)-amp)*Math.min(1,dt/700);        // smooth ease in/out
+    phase+=dt*0.0016*(0.3+0.7*amp);                    // slow period (~4s)
+    var y=Math.sin(phase)*12*amp;                      // y-axis only
+    plane.style.transform="translate3d(0,"+y.toFixed(2)+"px,0)";
+    water.style.transform="translateX(-50%) scaleX("+(1+Math.sin(phase)*0.04*amp).toFixed(3)+")";
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
